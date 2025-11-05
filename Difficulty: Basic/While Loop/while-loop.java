@@ -1,12 +1,16 @@
-class Solution {
-    public static void utility(int x) {
-        // code here
-        for(int i=x;i>=0;i--){
-            if(i==0){
-                System.out.print(i);
+import java.util.*;
+
+public class Solution {
+    public static void solve() {
+        Scanner sc = new Scanner(System.in);
+        // Your Code Here
+        int n=sc.nextInt();
+        while(n>=0){
+            if(n==0){
+                System.out.print(n);
                 break;
             }
-            System.out.print(i+" ");
-        }   
+            System.out.print((n--)+" ");
+        }
     }
 }
