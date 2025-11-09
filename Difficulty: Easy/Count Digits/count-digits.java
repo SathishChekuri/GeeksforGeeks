@@ -1,12 +1,16 @@
-class Solution {
-    public int countDigits(int n) {
-        // code here
+//Back-end complete function Template for Java
+import java.util.*;
+
+public class Solution {
+    public static void main(String args[]) {
+        // Your Code Here
+        Scanner sc=new Scanner(System.in);
+        long a=sc.nextLong();
         int c=0;
-        if(n==0) return 1;
-        while(n!=0){
+        while(a>0){
+            a/=10;
             c++;
-            n/=10;
         }
-        return c;
+        System.out.print(a);
     }
 }
