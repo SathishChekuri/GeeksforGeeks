@@ -1,12 +1,8 @@
-import java.util.*;
-
-public class Solution {
-    public static void solve() {
-        // Your Code Here
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        if(n>100) System.out.print("Big");
-        else if(n<10) System.out.print("Small");
-        else System.out.print("Number");
+class Solution {
+    public static void utility(int number) {
+        // Write the if, else if, else statements below
+        if(number>100) System.out.println("Big");
+        else if(number<10) System.out.println("Small");
+        else System.out.println("Number");
     }
 }
