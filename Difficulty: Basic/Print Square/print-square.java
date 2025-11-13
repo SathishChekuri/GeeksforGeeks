@@ -1,7 +1,10 @@
-// User function Template for Java
-class Solution {
-    public static void square(int s) {
-        // Complete the code given belo
+import java.util.*;
+
+public class Solution {
+    public static void solve() {
+        // Your Code Here
+        Scanner sc=new Scanner(System.in);
+        int s=sc.nextInt();
         String x="";
         char [][] ar=new char[s][s];
         for(int i=0;i<s;i++){
