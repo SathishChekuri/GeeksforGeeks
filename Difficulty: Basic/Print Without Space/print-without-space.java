@@ -1,9 +1,6 @@
-
 class Solution {
-    public void utility(Scanner scn) {
+    public void concatAndPrint(String a, String b) {
         // code here
-        String a=scn.nextLine();
-        String  b=scn.nextLine();
         System.out.println(a+b);
     }
 }
