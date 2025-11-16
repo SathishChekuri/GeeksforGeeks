@@ -1,15 +1,13 @@
-// User function Template for Java
 class Solution {
-    public static void triangle(int s) {
-
-        // Write your code here
-        for(int i=0;i<s;i++){
-            for(int j=0;j<=i;j++){
-                if(j==0||i==s-1||i==j) System.out.print("* ");
-                else System.out.print("  ");
+    public void printPattern(int n) {
+        //if(n>0) System.out.print
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+              if(j==1||i==n) System.out.print("* ");
+              else if(j==i) System.out.print("*");
+              else System.out.print("  ");
             }
             System.out.println();
         }
-        
     }
 }
