@@ -1,9 +1,6 @@
 class Solution {
-    public int apTerm(int a, int d, int n) {
+    public int nthTerm(int a, int d, int n) {
         // code here
-        
-        int ans = a + (n-1)*d;
-
-            return ans;
+        return (a+(n-1)*d);
     }
 }
