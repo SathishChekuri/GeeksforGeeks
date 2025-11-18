@@ -1,18 +1,15 @@
-import java.util.*;
-
-public class Solution {
-    public static void main(String args[]) {
-        // Your Code Here
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
+class Solution {
+    public static int fibonacci(int n) {
+        // Write your code here to calculate
+        // to calculate the nth fibonacci number
         int a=1;
         int b=1;
-        int t;
+        int c=1;
         for(int i=0;i<n-2;i++){
-            t=a+b;
-            b=a;
-            a=t;
+            c=a+b;
+            a=b;
+            b=c;
         }
-        System.out.print(a);
+        return c;
     }
 }
