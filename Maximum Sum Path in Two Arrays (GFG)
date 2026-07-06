@@ -1,0 +1,96 @@
+Maximum Sum Path in Two Arrays (GFG)
+
+Problem
+
+Given two sorted arrays of distinct integers in increasing order "a[]" and "b[]", which may have some common elements, find the maximum sum of a path from the beginning of any array to the end of any array.
+
+You may switch from one array to the other only at common elements, and each common element should be counted only once.
+
+Example
+
+Input
+
+a[] = [2, 3, 7, 10, 12]
+b[] = [1, 5, 7, 8]
+
+Output
+
+35
+
+Explanation
+
+The maximum sum path is:
+
+"1 → 5 → 7 → 10 → 12"
+
+Sum = 35
+
+---
+
+Approach
+
+- Use two pointers to traverse both sorted arrays simultaneously.
+- Maintain two running sums:
+  - "sum1" for array "a"
+  - "sum2" for array "b"
+- Continue adding elements to their respective sums until a common element is found.
+- At each common element:
+  - Add the larger of the two sums to the answer.
+  - Add the common element only once.
+  - Reset both running sums.
+- After traversal, add the remaining larger sum to the final answer.
+
+This greedy approach ensures the maximum possible path sum.
+
+---
+
+Java Solution
+
+class Solution {
+    public int maxPathSum(int[] a, int[] b) {
+        int i = 0, j = 0;
+        int sum1 = 0, sum2 = 0;
+        int ans = 0;
+
+        while (i < a.length && j < b.length) {
+            if (a[i] < b[j]) {
+                sum1 += a[i];
+                i++;
+            } else if (a[i] > b[j]) {
+                sum2 += b[j];
+                j++;
+            } else {
+                ans += Math.max(sum1, sum2) + a[i];
+                sum1 = 0;
+                sum2 = 0;
+                i++;
+                j++;
+            }
+        }
+
+        while (i < a.length) {
+            sum1 += a[i++];
+        }
+
+        while (j < b.length) {
+            sum2 += b[j++];
+        }
+
+        ans += Math.max(sum1, sum2);
+
+        return ans;
+    }
+}
+
+---
+
+Complexity Analysis
+
+- Time Complexity: "O(n + m)"
+- Space Complexity: "O(1)"
+
+---
+
+Tags
+
+"Java" "Arrays" "Two Pointers" "Greedy" "GeeksforGeeks"
