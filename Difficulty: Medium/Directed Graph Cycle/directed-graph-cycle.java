@@ -9,25 +9,29 @@ class Solution {
             ar.get(arr[0]).add(arr[1]);
             //ar.get(arr[1]).add(arr[0]);
         }
-        boolean [] visited=new boolean[V];
-        boolean [] path=new boolean[V];
+        Queue<Integer> q=new LinkedList<>();
+        int [] Indegree=new int[V];
         for(int i=0;i<V;i++){
-            if(!visited[i]){
-                if(dfs(i,path,visited,ar)) return true;
+            for(int j:ar.get(i)) Indegree[j]++;
+        }
+        int c=0;
+        for(int i=0;i<V;i++){
+            if(Indegree[i]==0){
+                q.add(i);
+                c++;
             }
         }
-        return false;
-    }
-    boolean dfs(int n,boolean path[],boolean [] visited,ArrayList<ArrayList<Integer>> ar){
-        visited[n]=true;
-        path[n]=true;
-        for(int i:ar.get(n)){
-            if(!visited[i]){
-                if(dfs(i,path,visited,ar)) return true;
+        while(!q.isEmpty()){
+            int curr=q.poll();
+            for(int i:ar.get(curr)){
+                Indegree[i]--;
+                if(Indegree[i]==0){
+                    q.add(i);
+                    c++;
+                }
             }
-            else if(path[i]) return true;
         }
-        path[n]=false;
-        return false;
+        return c!=V;
     }
+   
 }
